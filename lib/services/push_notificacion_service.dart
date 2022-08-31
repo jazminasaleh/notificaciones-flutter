@@ -6,8 +6,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 class PushNotificationService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
   static String? token;
-  static StreamController<String> _messagestream =
-      new StreamController.broadcast();
+  static StreamController<String> _messagestream = new StreamController.broadcast();
   static Stream<String> get messageStream => _messagestream.stream;
 
   static Future _backgrounHandler(RemoteMessage message) async {
