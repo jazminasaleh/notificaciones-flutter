@@ -1,30 +1,30 @@
 import 'dart:async';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 class PushNotificationService {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
   static String? token;
-  static StreamController<String> _messagestream = new StreamController.broadcast();
+  static StreamController<String> _messagestream =
+      new StreamController.broadcast();
   static Stream<String> get messageStream => _messagestream.stream;
 
   static Future _backgrounHandler(RemoteMessage message) async {
     //print('background Handler ${message.messageId}');
     print(message.data);
-    _messagestream.add(message.data['producto']?? 'No title');
+    _messagestream.add(message.data['producto'] ?? 'No title');
   }
 
   static Future _onMessageHandler(RemoteMessage message) async {
     //print('onMessage Handler ${message.messageId}');
-     print(message.data);
-    _messagestream.add(message.data['producto']?? 'No title');
+    print(message.data);
+    _messagestream.add(message.data['producto'] ?? 'No title');
   }
 
   static Future _onMessageOpenApp(RemoteMessage message) async {
     //print('onMessageOpenApp Handler ${message.messageId}');
     print(message.data);
-    _messagestream.add(message.data['producto']?? 'No title');
+    _messagestream.add(message.data['producto'] ?? 'No title');
   }
 
   static Future initializeApp() async {
