@@ -4,7 +4,9 @@ import 'package:notificaciones/screens/message_screen.dart';
 import 'package:notificaciones/services/push_notificacion_service.dart';
 
 void main() async {
+  //se debe priero inicializar los widgtes  antes de inicilizar la app
   WidgetsFlutterBinding.ensureInitialized();
+  //para iicializar la app
   await PushNotificationService.initializeApp();
   runApp(MyApp());
 }
@@ -41,7 +43,10 @@ class _MyAppState extends State<MyApp> {
       initialRoute: 'home',
       navigatorKey: navigatorKey,
       scaffoldMessengerKey: messengerKey,
-      routes: {'home': (_) => HomeScreen(), 'message': (_) => MessageScreen()},
+      routes: {
+        'home': (_) => HomeScreen(), 
+        'message': (_) => MessageScreen()
+      },
     );
   }
 }

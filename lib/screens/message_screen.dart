@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//Cuando llegue una notificacion aca muestra el mensaje
 class MessageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
